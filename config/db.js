@@ -1,4 +1,5 @@
 const mysql = require("mysql2");
+const createEmployeesTable = require("./schema/createEmployeesTable");
 
 const db = mysql.createConnection({
   host: "127.0.0.1",
@@ -12,6 +13,7 @@ db.connect((err) => {
     console.log(err);
   }
   console.log("Connected to MySQL database");
+  createEmployeesTable(db);
 });
 
 module.exports = db;
